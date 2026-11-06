@@ -11,6 +11,7 @@ import {
 } from 'lucide-react';
 import { PORTFOLIO_DATA } from '../data/portfolioData';
 import { ProjectImage } from './ProjectImage';
+import { PoleInspectionScanner } from './PoleInspectionScanner';
 
 export const AiSection: React.FC = () => {
   const { aiProjects } = PORTFOLIO_DATA;
@@ -141,16 +142,11 @@ export const AiSection: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-7 mt-5 items-start">
             {/* Left: Project Image & Development Objectives */}
             <div className="lg:col-span-6 space-y-4">
-              <div className="rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
-                <ProjectImage
-                  src={poleInspection.image}
-                  alt="PoleInspection Computer Vision Interface"
-                  aspectRatio="video"
-                  className="rounded-xl border-b-0"
-                  overlayTag="Core ML + Vision"
-                  overlayBadge="On-Device AI"
-                />
-              </div>
+              <PoleInspectionScanner
+                imageSrc={poleInspection.image}
+                activeCategoryIndex={activePoleCategory}
+                onSelectCategory={(idx) => setActivePoleCategory(idx)}
+              />
 
               <div className="space-y-2">
                 <h4 className="text-xs font-semibold text-slate-300 uppercase tracking-wider">

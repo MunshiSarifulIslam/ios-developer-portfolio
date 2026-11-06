@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { ArrowUpRight, CheckCircle2, Layers } from 'lucide-react';
+import { ArrowUpRight, CheckCircle2, Layers, Sparkles } from 'lucide-react';
 import { PORTFOLIO_DATA, Project } from '../data/portfolioData';
 import { ProjectModal } from './ProjectModal';
 import { ProjectImage } from './ProjectImage';
+import { TiltCard } from './TiltCard';
 
 export const ProjectsSection: React.FC = () => {
   const { enterpriseProjects, personalProjects } = PORTFOLIO_DATA;
@@ -10,6 +11,10 @@ export const ProjectsSection: React.FC = () => {
 
   return (
     <section id="projects" className="py-14 sm:py-16 border-t border-slate-800/80 relative scroll-mt-24">
+      {/* Background ambient depth glow */}
+      <div className="absolute top-1/2 left-0 w-72 h-72 bg-blue-600/5 rounded-full blur-3xl pointer-events-none -z-10" />
+      <div className="absolute bottom-10 right-0 w-72 h-72 bg-indigo-600/5 rounded-full blur-3xl pointer-events-none -z-10" />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
@@ -32,12 +37,13 @@ export const ProjectsSection: React.FC = () => {
           </div>
         </div>
 
-        {/* Enterprise Projects Grid */}
+        {/* Enterprise Projects Grid with 3D Tilt Cards */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {enterpriseProjects.map((project) => (
-            <div
+            <TiltCard
               key={project.id}
-              className="group flex flex-col justify-between rounded-2xl bg-slate-900/40 hover:bg-slate-900/70 border border-slate-800 hover:border-slate-700 transition-all duration-300 overflow-hidden shadow-lg hover:shadow-2xl"
+              maxTilt={4.5}
+              className="flex flex-col justify-between bg-slate-900/40 hover:bg-slate-900/70 border border-slate-800 hover:border-slate-700 shadow-lg hover:shadow-2xl hover:shadow-blue-950/20"
             >
               <div>
                 {/* Visual Header */}
@@ -78,7 +84,7 @@ export const ProjectsSection: React.FC = () => {
                   {project.technologies.slice(0, 4).map((tech) => (
                     <span
                       key={tech}
-                      className="text-[11px] font-mono text-slate-400 bg-slate-800/60 px-2 py-0.5 rounded"
+                      className="text-[11px] font-mono text-slate-400 bg-slate-800/60 px-2 py-0.5 rounded border border-slate-700/40 group-hover:border-slate-600/60 transition-colors"
                     >
                       {tech}
                     </span>
@@ -92,13 +98,13 @@ export const ProjectsSection: React.FC = () => {
 
                 <button
                   onClick={() => setSelectedProject(project)}
-                  className="w-full flex items-center justify-center gap-1.5 py-2 px-3 text-xs font-semibold text-white bg-slate-800/90 hover:bg-blue-600 rounded-lg transition-all cursor-pointer"
+                  className="w-full flex items-center justify-center gap-1.5 py-2 px-3 text-xs font-semibold text-white bg-slate-800/90 hover:bg-blue-600 rounded-lg transition-all duration-200 active:scale-98 cursor-pointer shadow-md hover:shadow-blue-600/30"
                 >
                   <span>Architecture & Details</span>
                   <ArrowUpRight className="w-3.5 h-3.5" />
                 </button>
               </div>
-            </div>
+            </TiltCard>
           ))}
         </div>
 
@@ -122,7 +128,7 @@ export const ProjectsSection: React.FC = () => {
             {personalProjects.map((p) => (
               <div
                 key={p.id}
-                className="p-5 sm:p-6 rounded-2xl bg-slate-900/40 hover:bg-slate-900/60 border border-slate-800 hover:border-slate-700 transition-all flex flex-col justify-between"
+                className="group p-5 sm:p-6 rounded-2xl bg-slate-900/40 hover:bg-slate-900/60 border border-slate-800 hover:border-slate-700 transition-all duration-300 flex flex-col justify-between hover:shadow-xl hover:shadow-blue-950/20"
               >
                 <div>
                   <div className="flex items-center justify-between gap-3 mb-2.5">
@@ -130,7 +136,7 @@ export const ProjectsSection: React.FC = () => {
                     <span className="text-xs text-slate-400">{p.role}</span>
                   </div>
 
-                  <h4 className="text-base sm:text-lg font-bold text-white tracking-tight">{p.title}</h4>
+                  <h4 className="text-base sm:text-lg font-bold text-white group-hover:text-blue-400 transition-colors tracking-tight">{p.title}</h4>
                   <p className="text-xs text-slate-400 mt-0.5 mb-3">{p.subtitle}</p>
 
                   <p className="text-xs text-slate-300 leading-relaxed mb-4">
@@ -152,7 +158,7 @@ export const ProjectsSection: React.FC = () => {
                     {p.technologies.map((t) => (
                       <span
                         key={t}
-                        className="text-[11px] font-mono text-slate-300 bg-slate-800/80 px-2 py-0.5 rounded"
+                        className="text-[11px] font-mono text-slate-300 bg-slate-800/80 px-2 py-0.5 rounded border border-slate-700/40"
                       >
                         {t}
                       </span>
@@ -160,7 +166,7 @@ export const ProjectsSection: React.FC = () => {
                   </div>
                   <button
                     onClick={() => setSelectedProject(p)}
-                    className="text-xs font-medium text-blue-400 hover:text-blue-300 flex items-center gap-1 cursor-pointer shrink-0"
+                    className="text-xs font-medium text-blue-400 hover:text-blue-300 flex items-center gap-1 cursor-pointer shrink-0 transition-colors"
                   >
                     <span>Details</span>
                     <ArrowUpRight className="w-3.5 h-3.5" />
