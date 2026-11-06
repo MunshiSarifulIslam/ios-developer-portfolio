@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { ArrowUpRight, CheckCircle2, Layers } from 'lucide-react';
 import { PORTFOLIO_DATA, Project } from '../data/portfolioData';
 import { ProjectModal } from './ProjectModal';
+import { ProjectImage } from './ProjectImage';
 
 export const ProjectsSection: React.FC = () => {
   const { enterpriseProjects, personalProjects } = PORTFOLIO_DATA;
@@ -40,23 +41,13 @@ export const ProjectsSection: React.FC = () => {
             >
               <div>
                 {/* Visual Header */}
-                <div className="relative aspect-video w-full overflow-hidden bg-slate-950 border-b border-slate-800">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    referrerPolicy="no-referrer"
-                    className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/25 to-transparent" />
-                  <div className="absolute bottom-2.5 left-3 right-3 flex items-center justify-between gap-2 text-[11px] text-slate-300 font-mono">
-                    <span className="bg-slate-950/90 px-2 py-0.5 rounded border border-slate-700/60 truncate max-w-[200px]">
-                      {project.clientOrType}
-                    </span>
-                    <span className="text-blue-400 font-semibold text-[10px] bg-slate-950/80 px-2 py-0.5 rounded border border-blue-900/40 shrink-0">
-                      Enterprise iOS
-                    </span>
-                  </div>
-                </div>
+                <ProjectImage
+                  src={project.image}
+                  alt={project.title}
+                  aspectRatio="video"
+                  overlayTag={project.clientOrType}
+                  overlayBadge="Enterprise iOS"
+                />
 
                 {/* Content */}
                 <div className="p-5">

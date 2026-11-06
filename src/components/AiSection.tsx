@@ -10,6 +10,7 @@ import {
   Info
 } from 'lucide-react';
 import { PORTFOLIO_DATA } from '../data/portfolioData';
+import { ProjectImage } from './ProjectImage';
 
 export const AiSection: React.FC = () => {
   const { aiProjects } = PORTFOLIO_DATA;
@@ -140,12 +141,14 @@ export const AiSection: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-7 mt-5 items-start">
             {/* Left: Project Image & Development Objectives */}
             <div className="lg:col-span-6 space-y-4">
-              <div className="rounded-xl overflow-hidden border border-slate-800 bg-slate-950">
-                <img
+              <div className="rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
+                <ProjectImage
                   src={poleInspection.image}
                   alt="PoleInspection Computer Vision Interface"
-                  referrerPolicy="no-referrer"
-                  className="w-full h-auto object-cover"
+                  aspectRatio="video"
+                  className="rounded-xl border-b-0"
+                  overlayTag="Core ML + Vision"
+                  overlayBadge="On-Device AI"
                 />
               </div>
 

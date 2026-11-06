@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { X, CheckCircle, Database, WifiOff, Cpu, Layers, BarChart2, Shield, ArrowUpRight } from 'lucide-react';
 import { Project } from '../data/portfolioData';
+import { ProjectImage } from './ProjectImage';
 
 interface ProjectModalProps {
   project: Project | null;
@@ -62,12 +63,14 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
         <div className="space-y-8 pt-6">
           {/* Main Visual if present */}
           {project.image && (
-            <div className="rounded-xl overflow-hidden border border-slate-800 bg-slate-950 max-h-80 sm:max-h-96">
-              <img
+            <div className="rounded-xl overflow-hidden border border-slate-800 bg-slate-950">
+              <ProjectImage
                 src={project.image}
                 alt={project.title}
-                referrerPolicy="no-referrer"
-                className="w-full h-full object-cover object-center"
+                aspectRatio="video"
+                className="border-b-0"
+                overlayTag={project.clientOrType}
+                overlayBadge="Architecture Blueprint"
               />
             </div>
           )}

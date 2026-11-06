@@ -115,7 +115,7 @@ export const PORTFOLIO_DATA = {
       role: 'iOS Application Developer',
       timeline: 'Production Deployment',
       technologies: ['Swift', 'UIKit', 'Combine', 'Core Data', 'RESTful APIs', 'XCTest'],
-      image: '/src/assets/images/project_cabin_crew_voyage_1793906830375.jpg',
+      image: '/assets/images/project_cabin_crew_voyage.jpg',
       summary: 'Built a mission-critical iOS application enabling Air India cabin crew to digitally log in-flight voyage reports — covering seating, meals, and onboard service issues. Replaced a previously paper-based reporting process, enabling faster issue visibility and improved coordination with ground teams across live flight operations.',
       offlineArchitecture: 'Personally owned offline-first data sync using Core Data with structured background context queues. Crew members can complete voyage reports during flights with zero connectivity; reports sync automatically upon touchdown and network restoration.',
       keyHighlights: [
@@ -140,7 +140,7 @@ export const PORTFOLIO_DATA = {
       role: 'iOS Application Developer',
       timeline: 'Production Deployment',
       technologies: ['SwiftUI', 'Combine', 'RESTful APIs', 'Core Data', 'Push Notifications'],
-      image: '/src/assets/images/project_pilot_plus_ipad_1793906831907.jpg',
+      image: '/assets/images/project_pilot_plus_ipad.jpg',
       summary: 'Engineered a full-featured iPad enterprise application for Air India flight operations — covering real-time crew detail management, arrival and departure monitoring, and automated fuel efficiency calculation.',
       offlineArchitecture: 'Architected an offline-first Core Data layer ensuring uninterrupted access across crew details, arrival/departure, and fuel metrics during flights, with seamless background sync upon reconnection.',
       keyHighlights: [
@@ -165,7 +165,7 @@ export const PORTFOLIO_DATA = {
       role: 'iOS Application Developer',
       timeline: 'Production Deployment',
       technologies: ['SwiftUI', 'UIKit', 'Combine', 'RESTful APIs', 'Core Data'],
-      image: '/src/assets/images/project_pge_inspection_1793906831281.jpg',
+      image: '/assets/images/project_pge_inspection.jpg',
       summary: "Developed and shipped new features on PG&E's field inspection platform using a SwiftUI + UIKit hybrid architecture via UIHostingController — extending an existing production codebase without disrupting live functionality.",
       offlineArchitecture: 'Relational data caching and validation queue in Core Data, enabling utility inspectors to capture asset records and photos in remote utility corridors with reliable sync upon return.',
       keyHighlights: [
@@ -230,7 +230,7 @@ export const PORTFOLIO_DATA = {
       subtitle: 'Image-Based Infrastructure Computer Vision on iOS',
       status: 'Ongoing Development Work',
       technologies: ['Python', 'TensorFlow', 'Core ML', 'Swift', 'SwiftUI', 'Vision Framework'],
-      image: '/src/assets/images/project_pole_inspection_ai_1793906831405.jpg',
+      image: '/assets/images/project_pole_inspection_ai.jpg',
       overview: 'An applied machine learning development project aimed at exploring automated utility pole condition inspection using computer vision. The core development objective focuses on training custom convolutional classification models in Python with TensorFlow, converting them to Core ML formats (.mlpackage), and integrating with Apple Vision framework in Swift for offline on-device inference.',
       developmentObjective: 'Investigating end-to-end model pipeline: dataset curation, model training in Python/TensorFlow, Core ML model quantization, and native iOS integration targeting offline, zero-network utility field conditions.',
       categories: [
